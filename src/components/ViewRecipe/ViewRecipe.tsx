@@ -10,7 +10,11 @@ import {
   Box,
 } from "@mui/material";
 import DashboardCard from "../Common/DashboardCard/DashboardCard";
-import { cardBoxStyle, containerStyle, recipeImageStyle } from "./ViewRecipe.styles";
+import {
+  cardBoxStyle,
+  containerStyle,
+  recipeImageStyle,
+} from "./ViewRecipe.styles";
 
 interface ViewRecipeProps {
   recipe: RecipeDB;
@@ -37,6 +41,36 @@ export default function ViewRecipe(props: ViewRecipeProps) {
           </Typography>
           <Typography variant="subtitle2" color="textSecondary">
             Date: {new Date(recipe.date).toLocaleDateString()}
+          </Typography>
+          <Typography variant="subtitle2" color="textSecondary" component={"p"}>
+            <Typography
+              variant="subtitle2"
+              color="textSecondary"
+              component={"span"}
+            >
+              Calories: {recipe.calories || 0} kCal
+            </Typography>
+            <Typography
+              variant="subtitle2"
+              color="textSecondary"
+              component={"span"}
+            >
+              Protien: {recipe.protein || 0} g
+            </Typography>
+            <Typography
+              variant="subtitle2"
+              color="textSecondary"
+              component={"span"}
+            >
+              Carbs: {recipe.protein || 0} grams
+            </Typography>
+            <Typography
+              variant="subtitle2"
+              color="textSecondary"
+              component={"span"}
+            >
+              Fat: {recipe.fat || 0} grams
+            </Typography>
           </Typography>
         </CardContent>
       </Box>

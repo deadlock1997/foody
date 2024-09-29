@@ -11,7 +11,7 @@ export async function GET() {
 
     if (!FoodLogDB.foodlog[userId]) {
       logInfo("No food logs found for user", { userId });
-      return new Response(JSON.stringify([]), { status: 200 });
+      return new Response(JSON.stringify({calories: 0, protein: 0, fat: 0 }), { status: 200 });
     }
 
     const totalConsumption =

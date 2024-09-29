@@ -11,3 +11,11 @@ export const tableCellStyle: SxProps<Theme> = {
 export const tableFooterStyle: SxProps<Theme> = {
   textAlign: "end",
 };
+
+export const noDataBox: SxProps<Theme> = {
+  width: "100%",
+  height: "100%",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+};

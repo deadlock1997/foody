@@ -39,7 +39,7 @@ export default function Graph() {
         />
       </Box>
       <Box sx={radioGroupBox}>
-        <FormControl>
+        <FormControl disabled={loading || totalConsumptionResponse.length === 0}>
           <RadioGroup
             aria-labelledby="time-interval-group"
             name="time-interval-group"
