@@ -22,7 +22,7 @@ interface ViewRecipeProps {
 
 export default function ViewRecipe(props: ViewRecipeProps) {
   const { recipe } = props;
-
+  console.log(recipe);
   return (
     <Container sx={containerStyle}>
       <Box sx={cardBoxStyle}>
@@ -39,38 +39,41 @@ export default function ViewRecipe(props: ViewRecipeProps) {
           <Typography variant="body1" color="textSecondary" gutterBottom>
             {recipe.desc}
           </Typography>
-          <Typography variant="subtitle2" color="textSecondary">
-            Date: {new Date(recipe.date).toLocaleDateString()}
+          <Typography
+            variant="subtitle2"
+            color="textSecondary"
+            component={"p"}
+            gutterBottom
+          >
+            <Typography
+              variant="subtitle2"
+              color="textSecondary"
+              component={"span"}
+            >
+              <strong>Calories: </strong>
+              {recipe.calories || 0} kCal ;
+            </Typography>
+            &nbsp;
+            <Typography
+              variant="subtitle2"
+              color="textSecondary"
+              component={"span"}
+            >
+              <strong>Protein:</strong> {recipe.protein || 0} g ;
+            </Typography>
+            &nbsp;
+            <Typography
+              variant="subtitle2"
+              color="textSecondary"
+              component={"span"}
+            >
+              <strong>fat:</strong> {recipe.fat || 0} grams
+            </Typography>
           </Typography>
-          <Typography variant="subtitle2" color="textSecondary" component={"p"}>
-            <Typography
-              variant="subtitle2"
-              color="textSecondary"
-              component={"span"}
-            >
-              Calories: {recipe.calories || 0} kCal
-            </Typography>
-            <Typography
-              variant="subtitle2"
-              color="textSecondary"
-              component={"span"}
-            >
-              Protien: {recipe.protein || 0} g
-            </Typography>
-            <Typography
-              variant="subtitle2"
-              color="textSecondary"
-              component={"span"}
-            >
-              Carbs: {recipe.protein || 0} grams
-            </Typography>
-            <Typography
-              variant="subtitle2"
-              color="textSecondary"
-              component={"span"}
-            >
-              Fat: {recipe.fat || 0} grams
-            </Typography>
+
+          <Typography variant="subtitle2" color="textSecondary" gutterBottom>
+            <strong>Date Added: </strong>
+            {new Date(recipe.date).toLocaleDateString()}
           </Typography>
         </CardContent>
       </Box>
