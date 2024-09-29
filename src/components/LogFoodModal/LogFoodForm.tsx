@@ -132,6 +132,11 @@ export default function LogFoodForm(props: LogFoodFormProps) {
               textField: {
                 required: true,
                 fullWidth: true,
+                slotProps: {
+                  htmlInput: {
+                    maxLength: 100,
+                  }
+                },
                 error: !!logInfoError.logDate,
                 helperText: logInfoError.logDate,
               },
@@ -150,6 +155,7 @@ export default function LogFoodForm(props: LogFoodFormProps) {
               error={!!logInfoError.calories}
               helperText={logInfoError.calories}
               value={logInfo.calories}
+              slotProps={{htmlInput: {maxLength: 10}}}
               onChange={(event) => {
                 handleChange(formatTextToNumber(event.target.value), "calories");
               }}
@@ -161,6 +167,7 @@ export default function LogFoodForm(props: LogFoodFormProps) {
               error={!!logInfoError.protein}
               helperText={logInfoError.protein}
               value={logInfo.protein}
+              slotProps={{htmlInput: {maxLength: 10}}}
               onChange={(event) => {
                 handleChange(formatTextToNumber(event.target.value), "protein");
               }}
@@ -172,6 +179,7 @@ export default function LogFoodForm(props: LogFoodFormProps) {
               error={!!logInfoError.fat}
               helperText={logInfoError.fat}
               value={logInfo.fat}
+              slotProps={{htmlInput: {maxLength: 10}}}
               onChange={(event) => {
                 handleChange(formatTextToNumber(event.target.value), "fat");
               }}

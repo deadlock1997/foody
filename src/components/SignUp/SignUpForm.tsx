@@ -176,6 +176,7 @@ export default function SignUpForm() {
               name="name"
               fullWidth
               value={userInfo.name}
+              slotProps={{ htmlInput: { maxLength: 50 } }}
               error={!!userError.name}
               helperText={userError.name}
               onChange={(e) => {
@@ -193,6 +194,7 @@ export default function SignUpForm() {
               value={userInfo.email}
               error={!!userError.email}
               helperText={userError.email}
+              slotProps={{ htmlInput: { maxLength: 50 } }}
               onChange={(e) => {
                 setUserError({ ...userError, email: "" });
                 setUserInfo({ ...userInfo, email: e.target.value });
@@ -214,6 +216,7 @@ export default function SignUpForm() {
               }}
               type={showPassword ? "text" : "password"}
               slotProps={{
+                htmlInput: { maxLength: 50 },
                 input: {
                   endAdornment: (
                     <InputAdornment position="end">
@@ -240,6 +243,7 @@ export default function SignUpForm() {
               fullWidth
               value={userInfo.confirmPassword}
               error={!!userError.confirmPassword}
+              slotProps={{ htmlInput: { maxLength: 50 } }}
               helperText={userError.confirmPassword}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {

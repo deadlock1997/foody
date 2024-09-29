@@ -102,6 +102,7 @@ export default function SignInForm() {
               required
               fullWidth
               value={email}
+              slotProps={{htmlInput: {maxLength: 50}}}
               error={emailError}
               helperText={emailError ? "Please enter email" : null}
               onChange={(e) => {
@@ -118,6 +119,7 @@ export default function SignInForm() {
               fullWidth
               value={password}
               error={passwordError}
+              slotProps={{htmlInput: {maxLength: 50}}}
               helperText={passwordError ? "Please enter password" : null}
               onChange={(e) => {
                 setPasswordError(false);

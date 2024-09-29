@@ -95,6 +95,7 @@ const App = () => {
             fullWidth
             label="Search for Recipes"
             value={searchQuery}
+            inputProps={{maxLength: 100}}
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === "Enter" && searchQuery.length > 0 && !loading) {
