@@ -15,6 +15,9 @@ import { LoadingButton } from "@mui/lab";
 import { Transition } from "@/utils/DialogTransition";
 import { SOMETHING_WENT_WRONG } from "@/contant";
 import { dialogPaper, dialogTitleStyle, dialogContentStyle, alertStyle, dialogActionsStyle, emptyBoxFlex } from "./LogFoodDeleteModal.style";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/store/store";
+import { fetchRecentLogs, fetchTotalConsumptionData, fetchTotalConsumptionToday } from "@/store/slice/DashboardSlice";
 
 interface LogFoodModalProps {
   open: boolean;
@@ -27,6 +30,12 @@ export default function LogFoodDeleteModal(props: LogFoodModalProps) {
   const [inProgress, setInProgress] = React.useState(false);
   const [error, setError] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
+  const dispatch = useDispatch<AppDispatch>();
+  const refreshData = () => {
+    dispatch(fetchRecentLogs());
+    dispatch(fetchTotalConsumptionData());
+    dispatch(fetchTotalConsumptionToday());
+  };
 
   const onCancelClick = () => {
     handleClose();
@@ -47,6 +56,7 @@ export default function LogFoodDeleteModal(props: LogFoodModalProps) {
         return;
       }
       setSuccess(true);
+      refreshData();
     } catch {
       setError(true);
     } finally {
