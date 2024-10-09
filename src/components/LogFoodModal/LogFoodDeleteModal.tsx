@@ -15,8 +15,8 @@ import { LoadingButton } from "@mui/lab";
 import { Transition } from "@/utils/DialogTransition";
 import { SOMETHING_WENT_WRONG } from "@/contant";
 import { dialogPaper, dialogTitleStyle, dialogContentStyle, alertStyle, dialogActionsStyle, emptyBoxFlex } from "./LogFoodDeleteModal.style";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "@/store/store";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/store/store";
 import { fetchRecentLogs, fetchTotalConsumptionData, fetchTotalConsumptionToday } from "@/store/slice/DashboardSlice";
 
 interface LogFoodModalProps {
